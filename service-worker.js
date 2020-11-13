@@ -48,7 +48,7 @@ workbox.precaching.precacheAndRoute([
 });
 
 workbox.routing.registerRoute(
-    new RegExp('^/assets/'),
+    new RegExp('/assets/'),
     /\.(?:png|gif|jpg|jpeg|svg)$/,
     workbox.strategies.cacheFirst({
         cacheName: 'images',
@@ -61,13 +61,13 @@ workbox.routing.registerRoute(
     }),
 );
 workbox.routing.registerRoute(
-    new RegExp('^/pages/'),
+    new RegExp('/pages/'),
     workbox.strategies.staleWhileRevalidate({
         cacheName: "pages",
     })
 );
 workbox.routing.registerRoute(
-    new RegExp('^/css/'),
+    new RegExp('/css/'),
     workbox.strategies.cacheFirst({
         cacheName: 'styles'
     })
